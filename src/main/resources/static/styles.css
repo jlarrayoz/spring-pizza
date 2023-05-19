@@ -27,3 +27,9 @@ div.ingredient-group {
 span.validationError {
 	color: red;
 }
+
+label {
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+}​

@@ -8,6 +8,7 @@
 <body>
 	<h1>Arme su pizza!</h1>
 	<img th:src="@{/images/pizza.jpeg}" />
+	<!--  Por defecto hace el submit del form a la URL actual  /design-->
 	<form method="POST" th:object="${pizza}">
 		
 		<div class="grid">
