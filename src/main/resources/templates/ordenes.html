@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Pizzeria Spring</title>
+<title>Pizza Jut</title>
 <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-	<!--  Por defecto hace el submit del form a la URL actual. Como la actual es /ordenes/actual, incluimos el action para cambiar ese comportamiento y que lo haga a /ordenes-->
+	<!--  Por defecto hace el submit del form a la URL actual. Como la actual es 
+	/ordenes/actual, incluimos el action para cambiar ese comportamiento y que lo haga a /ordenes
+	-->
 	<form method="POST" th:action="@{/ordenes}" th:object="${ordenPizza}">
 		<h1>Ordene sus creaciones !!!</h1>
 		<img th:src="@{/images/pizza.jpeg}" />

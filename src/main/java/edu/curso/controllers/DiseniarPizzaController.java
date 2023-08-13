@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @SessionAttributes("ordenPizza") //Pone el atributo ordenPizza que se define en el modelo más abajo en la session
 public class DiseniarPizzaController {
 	
+	//Agrego atributos al modelo
 	@ModelAttribute	
 	public void agregarIngredientesAlModelo(Model model) {
 		
@@ -37,11 +38,14 @@ public class DiseniarPizzaController {
 		}
 	}
 	
+	//Ponemos un objeto vacío de OrdenPizza en el modelo
+	//Además lo mandamos a la sesión
 	@ModelAttribute(name = "ordenPizza")
 	public OrdenPizza orden() {
 		return new OrdenPizza();
 	}
 	
+	//Ponemos un objeto vacío Pizza en el modelo
 	@ModelAttribute(name = "pizza")
 	public Pizza pizza() {
 		return new Pizza();
@@ -53,12 +57,13 @@ public class DiseniarPizzaController {
 		return "design";
 	}
 	
+	//Devuelve una lista de ingredientes filtrada por tipo (Ej: todas las masas)
 	private Iterable<Ingrediente> filterByType(List<Ingrediente> ingredientes, TipoIngrediente tipo) {
 		return ingredientes.stream().filter(x -> x.getTipo().equals(tipo)).collect(Collectors.toList());
 		
 	}
 	
-	
+	//Método post encargado de procesar una nueva orden de pizza
 	@PostMapping
 	public String procesarOrden(Pizza pizza, @ModelAttribute OrdenPizza ordenPizza) {
 		log.info("Procesando la pizza: {}", pizza);
